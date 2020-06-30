@@ -1,45 +1,76 @@
 <template>
   <section>
-    <div class="content" v-for="fact in facts" :key="fact.id">
+    <div v-for="fact in facts" class="content" :key="`fact-${fact.id}`" :id="`fact-${fact.id}`">
       <component :is="fact.image" />
       <div class="text">
         <h2 class="title">{{ fact.title }}</h2>
         <div class="description">{{ fact.description }}</div>
       </div>
     </div>
+    <a class="arrow" :href="nextTarget ? `#fact-${nextTarget}` : null">
+      <i @click="updateNextTarget"  class="fa fa-arrow-down" aria-hidden="true"></i>
+    </a>
     <div class="skewed"></div>
-    <div class="arrow">
-      <i class="fa fa-arrow-down" aria-hidden="true"></i>
-    </div>
   </section>
 </template>
 
 <script>
 import YogaImage from '@/assets/yoga.svg';
 import Programmer from '@/assets/programmer.svg';
+import Emigrant from '@/assets/emigrant.svg';
+import ProfileImage from '@/components/ProfileImage.vue';
 
 export default {
   name: 'App',
-  components: { YogaImage, Programmer },
+  components: {
+    YogaImage,
+    Programmer,
+    Emigrant,
+    ProfileImage,
+  },
   data() {
     return {
       facts: [
         {
           id: 1,
-          title: 'Mariangélica :P',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem, debitis saepe porro tenetur fugiat unde non ipsam explicabo commodi maiores aut quasi, dolorem facilis sapiente odit vel reprehenderit autem.',
-          image: YogaImage,
+          title: '✨ Mariangélica Useche',
+          description: 'Soy Lic. en Computación. Antes de eso bailaba en musicales de teatro.',
+          image: ProfileImage,
         },
         {
           id: 2,
-          title: 'Mariangélica :P',
+          title: '☀️ Me encanta hacer Yoga',
           description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem, debitis saepe porro tenetur fugiat unde non ipsam explicabo commodi maiores aut quasi, dolorem facilis sapiente odit vel reprehenderit autem.',
+            'Empecé en el 2016 y aunque a veces he sido intermitente, no creo que lo vaya a dejar por completo',
+          image: YogaImage,
+        },
+        {
+          id: 3,
+          title: '🇻🇪 De Venezuela para el mundo',
+          description:
+            'En diciembre de 2019 me mudé a Bogotá, y acá estoy construyendo mi vida profesional.',
+          image: Emigrant,
+        },
+        {
+          id: 4,
+          title: 'Me encanta maquetar',
+          description:
+            'Puedo pasar todo el día sentada en la computadora tratando de que un botón quede en el lugar perfecto.',
           image: Programmer,
         },
       ],
+      nextTarget: 1,
     };
+  },
+
+  methods: {
+    updateNextTarget() {
+      if (this.nextTarget + 1 <= this.facts.length) {
+        this.nextTarget += 1;
+      } else {
+        this.nextTarget = 1;
+      }
+    },
   },
 };
 </script>
@@ -50,6 +81,10 @@ export default {
   --color-primary: #5f147d;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -58,7 +93,6 @@ body {
   color: black;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
 }
 
 .skewed {
@@ -94,12 +128,12 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 50%;
-  font-size: 18px;
+  padding-top: 40%;
+  font-size: 25px;
 }
 
 .content .text .title {
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
   font-weight: bold;
   font-size: 40px;
 }
@@ -110,5 +144,7 @@ body {
   bottom: 20px;
   left: 50%;
   color: var(--color-primary);
+  cursor: pointer;
+  z-index: 3;
 }
 </style>
