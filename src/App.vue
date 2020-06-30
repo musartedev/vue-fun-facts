@@ -52,7 +52,7 @@ export default {
           id: 2,
           title: '☀️ Me encanta hacer Yoga',
           description:
-            'Empecé en el 2016 y aunque a veces he sido intermitente, no creo que lo vaya a dejar por completo. La práctica diaria trajo a mi vida una paz que no había experimientado antes.',
+            'Empecé en el 2016 y aunque a veces he sido intermitente, no creo que lo vaya a dejar por completo.',
           image: YogaImage,
         },
         {
@@ -90,6 +90,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto&display=swap");
 :root {
   --color-primary: #5f147d;
+  --color-secondary: #a331d0;
 }
 
 html {
@@ -104,6 +105,10 @@ body {
   color: black;
   margin: 0;
   padding: 0;
+}
+
+img {
+  max-width: 400px;
 }
 
 .skewed {
@@ -130,8 +135,10 @@ body {
   padding: 0 30px;
 }
 
-.content svg {
+.content svg,
+.content img {
   width: 600px;
+  margin: auto;
 }
 
 .content .text {
@@ -158,5 +165,39 @@ body {
   color: var(--color-primary);
   cursor: pointer;
   z-index: 3;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 0 20px;
+  }
+  .skewed {
+    transform: skewY(10deg);
+  }
+  .content svg,
+  .content img {
+    padding-top: 30px;
+    width: 300px;
+    margin: auto;
+  }
+
+  .content .text {
+    margin-top: 10px;
+    padding: 0;
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .skewed {
+    transform: skewY(0deg);
+  }
+
+  .arrow {
+    color: white;
+  }
 }
 </style>
