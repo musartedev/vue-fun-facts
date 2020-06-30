@@ -44,28 +44,29 @@ export default {
         {
           id: 1,
           title: '✨ Mariangélica Useche',
-          description: 'Soy Lic. en Computación. Antes de eso bailaba en musicales de teatro.',
+          description:
+            'Soy Lic. en Computación desde diciembre del 2018. Antes de eso bailaba en musicales de teatro y practicaba kárate.',
           image: ProfileImage,
         },
         {
           id: 2,
           title: '☀️ Me encanta hacer Yoga',
           description:
-            'Empecé en el 2016 y aunque a veces he sido intermitente, no creo que lo vaya a dejar por completo',
+            'Empecé en el 2016 y aunque a veces he sido intermitente, no creo que lo vaya a dejar por completo. La práctica diaria trajo a mi vida una paz que no había experimientado antes.',
           image: YogaImage,
         },
         {
           id: 3,
-          title: '🇻🇪 De Venezuela para el mundo',
+          title: '🇻🇪 Nací en Caracas, Venezuela',
           description:
-            'En diciembre de 2019 me mudé a Bogotá, y acá estoy construyendo mi vida profesional.',
+            'Allí estudié y empecé mi vida profesional, pero en diciembre de 2019 me mudé a Bogotá, y acá la sigo construyendo.',
           image: Emigrant,
         },
         {
           id: 4,
-          title: 'Me encanta maquetar',
+          title: '💻 Disfruto mucho maquetar',
           description:
-            'Puedo pasar todo el día sentada en la computadora tratando de que un botón quede en el lugar perfecto.',
+            'Puedo pasar todo el día sentada en la computadora tratando que un botón quede en el lugar perfecto.',
           image: Programmer,
         },
       ],
@@ -140,6 +141,7 @@ body {
   flex-direction: column;
   padding-top: 40%;
   font-size: 25px;
+  line-height: 40px;
 }
 
 .content .text .title {
