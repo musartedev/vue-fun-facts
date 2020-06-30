@@ -1,6 +1,11 @@
-# vue-fun-facts
+# ✨ Mus'Fun Facts
+This was an assigment of the Platzi Master Program.
+[DEMO](mus-fun-facts.netlify.app)
 
-## Project setup
+![DEMO DESKTOP](http://g.recordit.co/W0XF0F3iaD.gif)
+![DEMO Mobile](http://g.recordit.co/u3ErTGX6f9.gif)
+
+## 🛠 Project setup
 ```
 npm install
 ```
@@ -20,5 +25,5 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## License
+The MIT License
