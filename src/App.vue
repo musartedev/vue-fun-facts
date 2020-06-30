@@ -1,20 +1,29 @@
 <template>
-  <section>
-    <div v-for="fact in facts" class="content" :key="`fact-${fact.id}`" :id="`fact-${fact.id}`">
-      <component :is="fact.image" />
-      <div class="text">
-        <h2 class="title">{{ fact.title }}</h2>
-        <div class="description">{{ fact.description }}</div>
+  <div>
+    <social-nav />
+    <section>
+      <div v-for="fact in facts" class="content" :key="`fact-${fact.id}`" :id="`fact-${fact.id}`">
+        <component :is="fact.image" />
+        <div class="text">
+          <h2 class="title">{{ fact.title }}</h2>
+          <div class="description">{{ fact.description }}</div>
+        </div>
       </div>
-    </div>
-    <a class="arrow" :href="nextTarget ? `#fact-${nextTarget}` : null">
-      <i @click="updateNextTarget"  class="fa fa-arrow-down" aria-hidden="true"></i>
-    </a>
-    <div class="skewed"></div>
-  </section>
+      <a class="arrow" :href="nextTarget ? `#fact-${nextTarget}` : null">
+        <i
+          @click="updateNextTarget"
+          :class="`fa fa-${nextTarget === facts.length ? 'arrow-up' : 'arrow-down'}`"
+          aria-hidden="true"
+        ></i>
+      </a>
+      <div class="skewed"></div>
+    </section>
+  </div>
 </template>
 
 <script>
+import SocialNav from '@/components/SocialNav.vue';
+
 import YogaImage from '@/assets/yoga.svg';
 import Programmer from '@/assets/programmer.svg';
 import Emigrant from '@/assets/emigrant.svg';
@@ -27,6 +36,7 @@ export default {
     Programmer,
     Emigrant,
     ProfileImage,
+    SocialNav,
   },
   data() {
     return {
