@@ -1,30 +1,18 @@
 <template>
   <nav>
     <ul class="language-nav">
-      <li v-for="l in languages" :key="l.name">
-        <span @click="changeLang(l.name)">{{ l.name }}</span>
+      <li v-for="language in languages" :key="language">
+        <span @click="changeLang(language)">{{ language }}</span>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import usFlag from '@/assets/us.svg';
-import esFlag from '@/assets/es.svg';
-
 export default {
   data() {
     return {
-      languages: [
-        {
-          icon: usFlag,
-          name: 'en',
-        },
-        {
-          icon: esFlag,
-          name: 'es',
-        },
-      ],
+      languages: ['es', 'en'],
     };
   },
 
