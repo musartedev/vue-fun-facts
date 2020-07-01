@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <social-nav />
+  <main>
+    <sticky-nav/>
     <section>
       <div v-for="fact in facts" class="content" :key="`fact-${fact.id}`" :id="`fact-${fact.id}`">
         <component :is="fact.image" />
         <div class="text">
-          <h2 class="title">{{ fact.title }}</h2>
-          <div class="description">{{ fact.description }}</div>
+          <h2 class="title">{{ $t(fact.title) }}</h2>
+          <div class="description">{{ $t(fact.description) }}</div>
         </div>
       </div>
       <a class="arrow" :href="nextTarget ? `#fact-${nextTarget}` : null">
@@ -18,11 +18,11 @@
       </a>
       <div class="skewed"></div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
-import SocialNav from '@/components/SocialNav.vue';
+import StickyNav from '@/components/StickyNav.vue';
 
 import YogaImage from '@/assets/yoga.svg';
 import Programmer from '@/assets/programmer.svg';
@@ -36,37 +36,33 @@ export default {
     Programmer,
     Emigrant,
     ProfileImage,
-    SocialNav,
+    StickyNav,
   },
   data() {
     return {
       facts: [
         {
           id: 1,
-          title: '✨ Mariangélica Useche',
-          description:
-            'Soy Lic. en Computación desde diciembre del 2018. Antes de eso bailaba en musicales de teatro y practicaba kárate.',
+          title: 'fullName',
+          description: 'mainDescription',
           image: ProfileImage,
         },
         {
           id: 2,
-          title: '☀️ Me encanta hacer Yoga',
-          description:
-            'Empecé en el 2016 y aunque a veces he sido intermitente, no creo que lo vaya a dejar por completo.',
+          title: 'yogaTitle',
+          description: 'yogaDescription',
           image: YogaImage,
         },
         {
           id: 3,
-          title: '🇻🇪 Nací en Caracas, Venezuela',
-          description:
-            'Allí estudié y empecé mi vida profesional, pero en diciembre de 2019 me mudé a Bogotá, y acá la sigo construyendo.',
+          title: 'nationalityTitle',
+          description: 'nationalityDescription',
           image: Emigrant,
         },
         {
           id: 4,
-          title: '💻 Disfruto mucho maquetar',
-          description:
-            'Puedo pasar todo el día sentada en la computadora tratando que un botón quede en el lugar perfecto.',
+          title: 'hobbyTitle',
+          description: 'hobbyDescription',
           image: Programmer,
         },
       ],
@@ -89,8 +85,8 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto&display=swap");
 :root {
+  --color-text: white;
   --color-primary: #5f147d;
-  --color-secondary: #a331d0;
 }
 
 html {
@@ -102,9 +98,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: black;
+  color: var(--color-text);
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 img {

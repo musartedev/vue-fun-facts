@@ -43,9 +43,6 @@ export default {
 
 <style scoped>
 .social-nav {
-  position: fixed;
-  top: 0;
-  right: 15px;
   z-index: 3;
   font-size: 25px;
   display: flex;
