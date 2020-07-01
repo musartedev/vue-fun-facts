@@ -1,6 +1,6 @@
 <template>
   <main>
-    <sticky-nav/>
+    <sticky-nav />
     <section>
       <div v-for="fact in facts" class="content" :key="`fact-${fact.id}`" :id="`fact-${fact.id}`">
         <component :is="fact.image" />
@@ -196,5 +196,26 @@ img {
   .arrow {
     color: white;
   }
+
+  .content {
+    padding: 60px 20px;
+    display: block;
+  }
+
+  .content svg,
+  .content img {
+    padding-top: 30px;
+    width: 200px;
+    margin: auto;
+  }
+
+  .content .text .title {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+.content .text {
+  font-size: 18px;
+}
 }
 </style>
